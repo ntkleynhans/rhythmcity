@@ -32,6 +32,7 @@ if __name__ == "__main__":
 
   annotations = {}
   order = []
+  all_lang_tags = set()
   for anno in xmldoc.getElementsByTagName('ANNOTATION'):
     for align in anno.getElementsByTagName('ALIGNABLE_ANNOTATION'):
       if 'CVE_REF' not in align.attributes:
@@ -43,9 +44,11 @@ if __name__ == "__main__":
         for value in align.getElementsByTagName('ANNOTATION_VALUE'):
           for text in value.childNodes:
             lang_tags = extract_tags(text.nodeValue)
+            all_lang_tags.add(lang_tags)
             annotations[annotation_id] = {'start_time': start_time, 'end_time': end_time, 'text': text.nodeValue, 'lang_tags': lang_tags}
 
+  all_lang_tags = sorted(list(all_lang_tags))
   json_file = args.eaf.replace('.eaf','.json')
-  data = {'time_slots': time_slots, 'annotations': annotations, 'order': order}
+  data = {'time_slots': time_slots, 'annotations': annotations, 'order': order, 'lang_tags': all_lang_tags}
   with open(json_file, 'w') as f:
     json.dump(data, f, indent=4)
