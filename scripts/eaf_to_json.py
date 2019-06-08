@@ -3,6 +3,7 @@
 from xml.dom import minidom
 import argparse
 import json
+import os
 
 TAGS = set(['_afr', '_eng', '_fly', '_nso', '_sot', '_tsn', '_xho', '_zul'])
 
@@ -42,13 +43,18 @@ if __name__ == "__main__":
         end_time = align.attributes['TIME_SLOT_REF2'].value
 
         for value in align.getElementsByTagName('ANNOTATION_VALUE'):
-          for text in value.childNodes:
-            lang_tags = extract_tags(text.nodeValue)
-            all_lang_tags.add(lang_tags)
-            annotations[annotation_id] = {'start_time': start_time, 'end_time': end_time, 'text': text.nodeValue, 'lang_tags': lang_tags}
+          if len(value.childNodes) != 0:
+            for text in value.childNodes:
+              lang_tags = extract_tags(text.nodeValue)
+              all_lang_tags.add(lang_tags)
+              annotations[annotation_id] = {'start_time': start_time, 'end_time': end_time,
+                'text': '<p>{}</p>'.format(text.nodeValue), 'lang_tags': lang_tags}
+          else:
+            annotations[annotation_id] = {'start_time': start_time, 'end_time': end_time, 'text': '<p></p>', 'lang_tags': '_eng'}
 
   all_lang_tags = sorted(list(all_lang_tags))
   json_file = args.eaf.replace('.eaf','.json')
-  data = {'time_slots': time_slots, 'annotations': annotations, 'order': order, 'lang_tags': all_lang_tags}
+  data = {'audio_file': os.path.basename(args.eaf.replace('.eaf', '.wav')), 'time_slots': time_slots,
+   'annotations': annotations, 'order': order, 'lang_tags': all_lang_tags}
   with open(json_file, 'w') as f:
     json.dump(data, f, indent=4)

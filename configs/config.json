@@ -1,0 +1,32 @@
+{
+  "baseurl": "http://192.168.8.145/app/",
+  "admin_password":  "password",
+  "user_password": "password",
+  "project_user": "fdewet",
+  "projectmanager": "fdewet",
+  "collator" : "fdewet",
+
+  "uploader" : {
+    "USERS": {
+      "editor_sot_1" : {"username" : "editor_sot_1", "password" : "password", "name" : "Editor", "surname" : "Sotho", "email" : "sot1@editor.io", "role" : "editor"},
+      "editor_sot_2" : {"username" : "editor_sot_2", "password" : "password", "name" : "Editor", "surname" : "Sotho", "email" : "sot2@editor.io", "role" : "editor"},
+      "editor_sot_3" : {"username" : "editor_sot_3", "password" : "password", "name" : "Editor", "surname" : "Sotho", "email" : "sot3@editor.io", "role" : "editor"},
+      "editor_sot_4" : {"username" : "editor_sot_4", "password" : "password", "name" : "Editor", "surname" : "Sotho", "email" : "sot4@editor.io", "role" : "editor"},
+      "editor_sot_5" : {"username" : "editor_sot_5", "password" : "password", "name" : "Editor", "surname" : "Sotho", "email" : "sot5@editor.io", "role" : "editor"},
+      "editor_zul_1" : {"username" : "editor_zul_1", "password" : "password", "name" : "Editor", "surname" : "Zulu", "email" : "zul1@editor.io", "role" : "editor"},
+      "editor_zul_2" : {"username" : "editor_zul_2", "password" : "password", "name" : "Editor", "surname" : "Zulu", "email" : "zul2@editor.io", "role" : "editor"},
+      "editor_zul_3" : {"username" : "editor_zul_3", "password" : "password", "name" : "Editor", "surname" : "Zulu", "email" : "zul3@editor.io", "role" : "editor"},
+      "editor_zul_4" : {"username" : "editor_zul_4", "password" : "password", "name" : "Editor", "surname" : "Zulu", "email" : "zul4@editor.io", "role" : "editor"},
+      "editor_zul_5" : {"username" : "editor_zul_5", "password" : "password", "name" : "Editor", "surname" : "Zulu", "email" : "zul5@editor.io", "role" : "editor"},
+      "editor_eng_1" : {"username" : "editor_eng_1", "password" : "password", "name" : "Editor", "surname" : "English", "email" : "eng1@editor.io", "role" : "editor"},
+      "editor_eng_2" : {"username" : "editor_eng_2", "password" : "password", "name" : "Editor", "surname" : "English", "email" : "eng2@editor.io", "role" : "editor"},
+      "editor_eng_3" : {"username" : "editor_eng_3", "password" : "password", "name" : "Editor", "surname" : "English", "email" : "eng3@editor.io", "role" : "editor"},
+      "editor_eng_4" : {"username" : "editor_eng_4", "password" : "password", "name" : "Editor", "surname" : "English", "email" : "eng4@editor.io", "role" : "editor"},
+      "editor_eng_5" : {"username" : "editor_eng_5", "password" : "password", "name" : "Editor", "surname" : "English", "email" : "eng5@editor.io", "role" : "editor"}
+    }
+  },
+
+  "downloader" : {
+    "USERS" : ["fdewet"]
+  }
+}
